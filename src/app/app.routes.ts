@@ -1,3 +1,8 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { ContentComponent } from './content/content.component';
+
+export const routes: Routes = [
+  { path: '', component: ContentComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+];
