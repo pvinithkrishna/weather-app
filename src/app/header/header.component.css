@@ -1,0 +1,13 @@
+.topnav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icon-left{
+    margin-right: 10px;
+}
+
+.no-text-declaration{
+    text-decoration: none;
+}
