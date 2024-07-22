@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,14 @@ export class WeatherService {
   http = inject(HttpClient);
 
   getAllWeatherStatus(): Observable<any> {
-    return this.http.get<any>(this.apiUrl, { responseType: 'json' });
+    return this.http
+      .get(this.apiUrl, { responseType: 'json' })
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: any) {
+    console.log(error);
+    return throwError(() => new Error('Something went wrong'));
   }
 
   getWeatherStatus(id: number) {
