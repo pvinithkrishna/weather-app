@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { WeatherService } from '../weather.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-citycard',
   standalone: true,
-  imports: [CardModule, CommonModule],
+  imports: [CardModule, CommonModule, RouterModule],
   templateUrl: './citycard.component.html',
   styleUrl: './citycard.component.css',
 })
