@@ -17,8 +17,15 @@ export class WeathercitydetailsComponent {
 
   constructor() {
     this.weatherLocationId = Number(this.route.snapshot.params['id']);
-    this.weatherLocation = this.weatherService.getWeatherStatus(
-      this.weatherLocationId
-    );
+    this.weatherLocation = this.weatherService
+      .getWeatherStatus(this.weatherLocationId)
+      .subscribe({
+        next: (data) => {
+          this.weatherLocation = data;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }

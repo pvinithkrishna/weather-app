@@ -22,8 +22,8 @@ export class WeatherService {
     return throwError(() => new Error('Something went wrong'));
   }
 
-  getWeatherStatus(id: number) {
-    this.http.get(this.apiUrl + '/' + id);
+  getWeatherStatus(id: number): Observable<any> {
+    return this.http.get(this.apiUrl + '/' + id);
   }
   constructor() {}
 }
