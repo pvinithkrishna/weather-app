@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../weather.service';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-weathercitydetails',
   standalone: true,
-  imports: [],
+  imports: [TableModule],
   templateUrl: './weathercitydetails.component.html',
   styleUrl: './weathercitydetails.component.css',
 })

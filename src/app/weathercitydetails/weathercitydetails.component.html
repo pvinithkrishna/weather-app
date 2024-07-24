@@ -1,1 +1,22 @@
-<p>weathercitydetails works! {{weatherLocationId}}</p>
+<div class="card">
+    <p-table [value]="weatherLocation.forecast" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Date</th>
+                <th>Temperature</th>
+                <th>Weather Description</th>
+                <th>Humidity</th>
+                <th>Wind Speed</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-forecast>
+            <tr>
+                <td>{{ forecast.date }}</td>
+                <td>{{ forecast.temperature }}</td>
+                <td>{{ forecast.weather_description }}</td>
+                <td>{{ forecast.humidity }}</td>
+                <td>{{ forecast.wind_speed }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
