@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { WeatherService } from '../weather.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { WeatherLocation } from '../weather-location';
 
 @Component({
   selector: 'app-citycard',
@@ -13,8 +14,9 @@ import { RouterModule } from '@angular/router';
 })
 export class CitycardComponent {
   weatherService = inject(WeatherService);
+  @Input() weatherLocation!: WeatherLocation;
 
-  allWeathers: any[] = [];
+  allWeathers: WeatherLocation[] = [];
 
   constructor() {
     this.weatherService.getAllWeatherStatus().subscribe({
